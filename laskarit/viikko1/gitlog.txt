@@ -1,4 +1,4 @@
-$ git -P log --stat
+$ git -P log --stat # näin vältetään paginointi oikeaoppisesti
 commit 850b188c74715862456bfa915508aab13a4329fa (HEAD -> master)
 Author: Roope Salmi <rpsalmi@gmail.com>
 Date:   Mon Mar 22 20:24:46 2021 +0200
