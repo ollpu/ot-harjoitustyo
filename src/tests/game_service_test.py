@@ -1,5 +1,3 @@
-import sys
-print(sys.path)
 import unittest
 from game_service import GameService, GuessResult
 from game import Game

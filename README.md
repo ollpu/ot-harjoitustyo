@@ -1,15 +1,20 @@
 # Ohjelmistotekniikka harjoitustyö
 
-## Harjoitustyön dokumentaatio
+## Dokumentaatio
 
 [Vaatimusmäärittely](/dokumentaatio/vaatimusmäärittely.md)  
 [Tuntikirjanpito](/dokumentaatio/tuntikirjanpito.md)  
 
-## Tehtävät
+## Käyttö
 
-### Viikko 1
+Asenna riippuvuudet ja käynnistä sovellus näin:
 
-[gitlog.txt](laskarit/viikko1/gitlog.txt)  
-[komentorivi.txt](laskarit/viikko1/komentorivi.txt)
+```sh
+poetry install
+poetry run invoke start
+```
 
-### [Viikko 2](/laskarit/viikko2)
+ - Testien ajaminen: `poetry run invoke test`
+ - Testikattavuusraportti `htmlcov`-kansioon: `poetry run invoke coverage-report`
+ - Pylint: `poetry run invoke lint`
+

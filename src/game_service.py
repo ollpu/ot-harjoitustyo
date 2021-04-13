@@ -8,21 +8,20 @@ class GuessResult(Enum):
 
 class GameService:
     def __init__(self):
-        self.reset()
-
-    def reset(self):
-        self.game_active = False
+        self.game = None
         self.current_round = None
         self.round = None
         self.texts_left = []
         self.images = []
         self.images_used = []
 
+    def reset(self):
+        self.__init__()
+
     def start_game(self, game):
         self.game = game
         self.current_round = 0
         self._load_round()
-        self.game_active = True
 
     def _load_round(self):
         self.round = self.game.rounds[self.current_round]
@@ -34,7 +33,7 @@ class GameService:
 
     def next_round(self):
         self.current_round += 1
-        if self.current_round >= len(self.rounds):
+        if self.current_round >= len(self.game.rounds):
             self.reset()
             return True
         else:
@@ -74,4 +73,3 @@ class GameService:
                 return GuessResult.CORRECT_ROUND_COMPLETE
             else:
                 return GuessResult.CORRECT_ONE
-
