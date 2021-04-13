@@ -17,6 +17,6 @@ class Image:
         scale = IMAGE_SIZE / max(width, height)
         if scale != 1.0:
             new_size = (int(width * scale), int(height * scale))
-            self.image.resize(new_size)
+            self.image = self.image.resize(new_size)
 
 
