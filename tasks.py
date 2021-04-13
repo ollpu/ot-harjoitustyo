@@ -7,3 +7,11 @@ def test(ctx):
 @task
 def start(ctx):
     ctx.run("python3 src/ui/main.py")
+
+@task
+def coverage(ctx):
+    ctx.run("coverage run -m pytest src", pty=True)
+
+@task(coverage)
+def coverage_report(ctx):
+    ctx.run("coverage html")
