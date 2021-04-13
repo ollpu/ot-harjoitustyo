@@ -6,5 +6,6 @@
 | **Viikko 2** | 3 | |
 | 10.4. | 3 | harjoitustyön projektirakenteen ja GameService alustus, pytest |
 | 13.4. | 1 | tkinteriin tutustuminen ja alustus, coverage |
-| **Viiko 3** | ? | |
-| **yht.**     | 3 | |
+| 14.4. | 3 | pylint, GUI:n rakentelu. kuvia näkyy jo! |
+| **Viiko 3** | 7 | |
+| **yht.**     | 10 | |

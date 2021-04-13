@@ -1,4 +1,8 @@
-from tkinter import Tk, Button
+from tkinter import Tk
+from tkinter.ttk import Button
+from default_game import load_test_game
+from .game_view import GameView
+from game_service import GameService
 
 class UI(Tk):
     def __init__(self, *args, **kwargs):
@@ -6,6 +10,7 @@ class UI(Tk):
 
         self.title('Lukemisen harjoittelu')
         self._view = None
+        self._game = load_test_game()
         self.show_start_view()
 
     def destroy_current_view(self):
@@ -22,4 +27,6 @@ class UI(Tk):
     def show_game_view(self):
         self.destroy_current_view()
 
-        # TODO
+        self._view = GameView(self, GameService())
+        self._view.pack()
+        self._view.start(self._game)
