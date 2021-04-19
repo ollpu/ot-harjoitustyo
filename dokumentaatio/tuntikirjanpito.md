@@ -8,4 +8,6 @@
 | 13.4. | 1 | tkinteriin tutustuminen ja alustus, coverage |
 | 14.4. | 3 | pylint, GUI:n rakentelu. kuvia näkyy jo! |
 | **Viiko 3** | 7 | |
+| 19.4. | 3 | GUI toimivaksi, lisää testejä, doc-kommentteja |
+| **Viikko 4** | - | |
 | **yht.**     | 10 | |
