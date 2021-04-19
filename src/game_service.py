@@ -7,33 +7,52 @@ class GuessResult(Enum):
     CORRECT_ROUND_COMPLETE = 2
 
 class GameService:
-    def __init__(self):
-        self.game = None
-        self.current_round = None
-        self.round = None
-        self.texts_left = []
-        self.images = []
-        self.images_used = []
+    def __init__(self, shuffle=random.shuffle):
+        self._game = None
+        self._current_round = None
+        self._round = None
+        self._texts_left = []
+        self._images = []
+        self._images_used = []
+        self._shuffle = shuffle
 
     def reset(self):
-        self.__init__()
+        """
+        Reset and unload currently active game.
+        """
+
+        self._game = None
+        self._current_round = None
+        self._round = None
+        self._texts_left = []
+        self._images = []
+        self._images_used = []
 
     def start_game(self, game):
-        self.game = game
-        self.current_round = 0
+        """
+        Start the given `game`. The first round is loaded immediately.
+        """
+
+        self._game = game
+        self._current_round = 0
         self._load_round()
 
     def _load_round(self):
-        self.round = self.game.rounds[self.current_round]
-        self.texts_left = [(text, i) for i, (text, _) in enumerate(self.round.pairs)]
-        random.shuffle(self.texts_left)
-        self.images = [(image, i) for i, (_, image) in enumerate(self.round.pairs)]
-        random.shuffle(self.images)
-        self.images_used = [False]*len(self.round.pairs)
+        self._round = self._game.rounds[self._current_round]
+        self._texts_left = [(text, i) for i, (text, _) in enumerate(self._round.pairs)]
+        self._shuffle(self._texts_left)
+        self._images = [(image, i) for i, (_, image) in enumerate(self._round.pairs)]
+        self._shuffle(self._images)
+        self._images_used = [False]*len(self._round.pairs)
 
     def next_round(self):
-        self.current_round += 1
-        if self.current_round >= len(self.game.rounds):
+        """
+        Move to and load next round.
+        """
+
+        assert self._current_round is not None
+        self._current_round += 1
+        if self._current_round >= len(self._game.rounds):
             self.reset()
             return False
         else:
@@ -41,35 +60,43 @@ class GameService:
             return True
 
     def get_text(self):
-        if not self.texts_left:
+        """
+        Get currently active text, against which the correct image should be guessed.
+        """
+
+        if not self._texts_left:
             return None
         else:
-            return self.texts_left[-1][0]
+            return self._texts_left[-1][0]
 
     def get_images(self):
         """
-        Retuns an array of tuples (image, index). The order is shuffled at the
-        start of the round, so it can be used to lay out the images.
+        Retuns an array of tuples (image, index) which represent the images
+        of this round. The order is shuffled at the start of the round, so it
+        can be used to lay out the images.
         """
-        return self.images
+
+        return self._images
 
     def get_used_images(self):
         """
         Returns an array of booleans, where the index i is True if that image
-        has already been used.
+        has already been used on this round.
         """
-        return self.images_used
+
+        return self._images_used
 
     def submit_guess(self, index):
         """
         Guess that the current text corresponds to the image `index`.
         """
-        if index != self.texts_left[-1][1]:
+
+        if index != self._texts_left[-1][1]:
             return GuessResult.INCORRECT
         else:
-            self.images_used[index] = True
-            self.texts_left.pop()
-            if not self.texts_left:
+            self._images_used[index] = True
+            self._texts_left.pop()
+            if not self._texts_left:
                 return GuessResult.CORRECT_ROUND_COMPLETE
             else:
                 return GuessResult.CORRECT_ONE
