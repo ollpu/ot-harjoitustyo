@@ -19,4 +19,3 @@ class FlashMessage(Frame):
         if self._after_callback:
             self._after_callback()
         self.destroy()
-

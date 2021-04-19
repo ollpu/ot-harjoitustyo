@@ -143,7 +143,11 @@ disable=print-statement,
         missing-function-docstring,
         missing-class-docstring,
         no-self-use,
-        no-else-return
+        # Mielestäni huonoa tyyliä
+        no-else-return,
+        # tkinter-luokkahierarkia on itsessään liian syvä. Muussa
+        # koodissa en tule tekemään näin syviä hierarkoita.
+        too-many-ancestors
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option

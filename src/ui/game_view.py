@@ -1,10 +1,10 @@
-from tkinter import StringVar, Text, RIGHT
+from tkinter import StringVar, RIGHT
 from tkinter import Label as ImgLabel
 from tkinter.ttk import Frame, Label
 from PIL import ImageTk
 
 from game_service import GuessResult
-from .flash_message import FlashMessage
+from ui.flash_message import FlashMessage
 
 IMAGES_PER_ROW = 5
 
@@ -43,7 +43,7 @@ class GameView(Frame):
             row_count += 1
             img = ImageTk.PhotoImage(image.image)
             label = ImgLabel(master=row, image=img)
-            label.bind("<Button-1>", lambda e,index=index,ctx=self: ctx._guess(index))
+            label.bind("<Button-1>", lambda e,index=index,ctx=self: ctx.guess(index))
             label.pack(side=RIGHT, padx=3)
             self._images.append((label, index, img))
 
@@ -56,7 +56,7 @@ class GameView(Frame):
         self._game_service.reset()
         self.master.show_start_view()
 
-    def _guess(self, index):
+    def guess(self, index):
         result = self._game_service.submit_guess(index)
         if result == GuessResult.INCORRECT:
             msg = FlashMessage(self, "Väärin", "#a00612", "#c8abb6")
@@ -69,7 +69,5 @@ class GameView(Frame):
                 msg = FlashMessage(self, "Oikein!\nSeuraava kierros", "#068010", "#ABC8B6")
                 msg.show_timer(self._start_round, 2000)
             else:
-                # TODO: lopeta peli
                 msg = FlashMessage(self, "Oikein!\nPeli loppu", "#068010", "#ABC8B6")
                 msg.show_timer(self._end_game, 4000)
-                pass

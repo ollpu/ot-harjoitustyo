@@ -1,8 +1,9 @@
+import random
 import unittest
+
 from game_service import GameService, GuessResult
 from game import Game
 from round import Round
-import random
 
 class TestGameService(unittest.TestCase):
     def setUp(self):
