@@ -1,5 +1,4 @@
-from tkinter import Tk
-from tkinter.ttk import Button
+from tkinter import Tk, Button, X, BOTH, CENTER
 from default_game import load_test_game
 from .game_view import GameView
 from game_service import GameService
@@ -23,11 +22,12 @@ class UI(Tk):
         self.destroy_current_view()
 
         self._view = Button(self, text="Aloita peli", command=self.show_game_view)
-        self._view.pack()
+        self._view.config(font=("TkDefaultFont", 24))
+        self._view.place(relx=0.5, rely=0.5, anchor=CENTER)
 
     def show_game_view(self):
         self.destroy_current_view()
 
         self._view = GameView(self, GameService())
-        self._view.pack()
+        self._view.pack(fill=X)
         self._view.start(self._game)

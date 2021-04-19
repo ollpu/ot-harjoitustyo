@@ -4,6 +4,7 @@ from tkinter.ttk import Frame, Label
 from PIL import ImageTk
 
 from game_service import GuessResult
+from .flash_message import FlashMessage
 
 IMAGES_PER_ROW = 5
 
@@ -14,7 +15,7 @@ class GameView(Frame):
         self._game_service = game_service
         self._current_word_var = StringVar(self)
         self._current_word_label = Label(master=self, textvariable=self._current_word_var)
-        self._current_word_label.config(font=("TkDefaultFont", 22))
+        self._current_word_label.config(font=("TkDefaultFont", 24))
         self._current_word_label.pack(pady=6)
         #self._images_container = Text(self, wrap="char", borderwidth=0,
         #                              highlightthickness=0, state="disabled")
@@ -51,15 +52,24 @@ class GameView(Frame):
     def _update(self):
         self._current_word_var.set(self._game_service.get_text())
 
+    def _end_game(self):
+        self._game_service.reset()
+        self.master.show_start_view()
+
     def _guess(self, index):
         result = self._game_service.submit_guess(index)
         if result == GuessResult.INCORRECT:
-            pass
+            msg = FlashMessage(self, "Väärin", "#a00612", "#c8abb6")
+            msg.show_timer(None)
         elif result == GuessResult.CORRECT_ONE:
-            self._update()
+            msg = FlashMessage(self, "Oikein!", "#06a012", "#ABC8B6")
+            msg.show_timer(self._update)
         elif result == GuessResult.CORRECT_ROUND_COMPLETE:
             if self._game_service.next_round():
-                self._start_round()
+                msg = FlashMessage(self, "Oikein!\nSeuraava kierros", "#068010", "#ABC8B6")
+                msg.show_timer(self._start_round, 2000)
             else:
                 # TODO: lopeta peli
+                msg = FlashMessage(self, "Oikein!\nPeli loppu", "#068010", "#ABC8B6")
+                msg.show_timer(self._end_game, 4000)
                 pass
