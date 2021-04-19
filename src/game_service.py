@@ -35,10 +35,10 @@ class GameService:
         self.current_round += 1
         if self.current_round >= len(self.game.rounds):
             self.reset()
-            return True
+            return False
         else:
             self._load_round()
-            return False
+            return True
 
     def get_text(self):
         if not self.texts_left:
