@@ -8,7 +8,8 @@ class UI(Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.title('Lukemisen harjoittelu')
+        self.title("Lukemisen harjoittelu")
+        self.geometry("900x700")
         self._view = None
         self._game = load_test_game()
         self.show_start_view()
