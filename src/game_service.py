@@ -2,12 +2,29 @@ import random
 from enum import Enum
 
 class GuessResult(Enum):
+    """
+    Enum representing the outcome of a guess.
+
+    INCORRECT = Wrong image guessed.
+    CORRECT_ONE = Correct image guessed, proceeding to next one.
+    CORRECT_ROUND_COMPLETE = Correct image guessed, and the current round is complete.
+    """
     INCORRECT = 0
     CORRECT_ONE = 1
     CORRECT_ROUND_COMPLETE = 2
 
 class GameService:
+    """Service governing the logic of a game being played."""
+
     def __init__(self, shuffle=random.shuffle):
+        """
+        Constructor.
+
+        Args:
+            shuffle: Inject different shuffle implementation. The texts are first shuffled,
+                     followed by the images, at the beginning of each round.
+        """
+
         self._game = None
         self._current_round = None
         self._round = None
@@ -31,6 +48,9 @@ class GameService:
     def start_game(self, game):
         """
         Start the given `game`. The first round is loaded immediately.
+
+        Args:
+            game: The game to be started.
         """
 
         self._game = game
@@ -48,6 +68,9 @@ class GameService:
     def next_round(self):
         """
         Move to and load next round.
+
+        Returns:
+            True if successful, False if there is no next round available.
         """
 
         assert self._current_round is not None
@@ -62,6 +85,9 @@ class GameService:
     def get_text(self):
         """
         Get currently active text, against which the correct image should be guessed.
+
+        Returns:
+            String, the active text, or None if the round is complete.
         """
 
         if not self._texts_left:
@@ -71,17 +97,23 @@ class GameService:
 
     def get_images(self):
         """
-        Retuns an array of tuples (image, index) which represent the images
-        of this round. The order is shuffled at the start of the round, so it
-        can be used to lay out the images.
+        Get images associated with this round.  The order is shuffled at the
+        start of the round, so it can be used to lay out the images.
+
+        Returns:
+            An array of tuples (image, index) which represent the images
+            of this round.
         """
 
         return self._images
 
     def get_used_images(self):
         """
-        Returns an array of booleans, where the index i is True if that image
-        has already been used on this round.
+        Query which images have been used already.
+
+        Returns:
+            An array of booleans, where the index i is True if that image
+            has already been used on this round.
         """
 
         return self._images_used
@@ -89,6 +121,11 @@ class GameService:
     def submit_guess(self, index):
         """
         Guess that the current text corresponds to the image `index`.
+
+        Args:
+            index: Guessed image index, gotten from `get_images`.
+        Returns:
+            A `GuessResult`.
         """
 
         if index != self._texts_left[-1][1]:
