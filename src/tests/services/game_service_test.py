@@ -1,9 +1,9 @@
 import random
 import unittest
 
-from game_service import GameService, GuessResult
-from game import Game
-from round import Round
+from services.game_service import GameService, GuessResult
+from entities.game import Game
+from entities.round import Round
 
 class TestGameService(unittest.TestCase):
     def setUp(self):

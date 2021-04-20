@@ -1,7 +1,7 @@
 from tkinter import Tk, Button, X, CENTER
 from default_game import load_test_game
 
-from game_service import GameService
+from services.game_service import GameService
 from ui.game_view import GameView
 
 class UI(Tk):

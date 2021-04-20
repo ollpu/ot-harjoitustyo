@@ -3,7 +3,7 @@ from tkinter import Label as ImgLabel
 from tkinter.ttk import Frame, Label
 from PIL import ImageTk
 
-from game_service import GuessResult
+from services.game_service import GuessResult
 from ui.flash_message import FlashMessage
 
 IMAGES_PER_ROW = 5

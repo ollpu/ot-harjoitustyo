@@ -1,5 +1,5 @@
 import unittest
-from image import Image, IMAGE_SIZE
+from entities.image import Image, IMAGE_SIZE
 
 class PILImageMock:
     def __init__(self, size, filename, resized=False):
