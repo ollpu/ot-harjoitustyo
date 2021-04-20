@@ -41,7 +41,7 @@ class GameView(Frame):
                 row.pack(pady=3)
                 row_count = 0
             row_count += 1
-            img = ImageTk.PhotoImage(image.image)
+            img = ImageTk.PhotoImage(image.loaded_image)
             label = ImgLabel(master=row, image=img)
             label.bind("<Button-1>", lambda e,index=index,ctx=self: ctx.guess(index))
             label.pack(side=RIGHT, padx=3)
