@@ -3,6 +3,7 @@
 ## Dokumentaatio
 
 [Vaatimusmäärittely](/dokumentaatio/vaatimusmäärittely.md)  
+[Arkkitehtuuri](/dokumentaatio/arkkitehtuuri.md)  
 [Tuntikirjanpito](/dokumentaatio/tuntikirjanpito.md)  
 
 ## Käyttö
@@ -18,3 +19,4 @@ poetry run invoke start
  - Testikattavuusraportti `htmlcov`-kansioon: `poetry run invoke coverage-report`
  - Pylint: `poetry run invoke lint`
 
+**Huom:** Komennot ajettava repositorion juuressa.
