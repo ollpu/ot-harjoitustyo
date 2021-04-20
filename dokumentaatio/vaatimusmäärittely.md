@@ -23,17 +23,21 @@ pelaajakin pystyy valitsemaan mieleisen.
 Editointitilaan pääsee alkuruudusta jotenkin, kuitenkin niin ettei pelaaja eksy sinne
 vahingossa.
 
+*(tehty: Yhden kovakoodatun pelin voi aloittaa aloitusruudusta)*
+
 ### Pelaaminen
 
-Peli etenee tehtävä kerrallaan. Kun yksi tehtävä valmistuu, siirrytään seuraavaan.
+Peli etenee tehtävä kerrallaan. Kun yksi tehtävä valmistuu, siirrytään seuraavaan. *(tehty)*
 Tehtävät voidaan esittää sattumanvaraisessa järjestyksessä.
 
 Ensisijaisessa tehtävätyypissä pelaajalle esitetään joukko kuvia, ja yksi sana
 kerrallaan. Pelaajan on jokaisen sanan kohdalla tarkoitus painaa sitä vastaavaa kuvaa.
 Jos painetaan oikein, tehdään tämä ilmeiseksi ja siirrytään hetken päästä seuraavaan sanaan.
+*(tehty)*
 
 Jos taas painetaan väärin, tehdään tämä ilmeiseksi ja annetaan pelaajan yrittää uudestaan.
 Jossain vaiheessa voidaan siirtyä seuraavaan sanaan, jos sana ei millään mene oikein.
+*(tehty)*
 
 Koska pelaaja ei oikein osaa vielä lukea, tulee hyödyntää yksinkertaisia visuaalisia
 merkkejä tai ehkä äänimerkkejä.

@@ -9,5 +9,6 @@
 | 14.4. | 3 | pylint, GUI:n rakentelu. kuvia näkyy jo! |
 | **Viiko 3** | 7 | |
 | 19.4. | 3 | GUI toimivaksi, lisää testejä, doc-kommentteja |
-| **Viikko 4** | - | |
-| **yht.**     | 10 | |
+| 20.4. | 4 | koodin siistintää, testejä Image-luokalle, doc-kommentteja, pakkaus/luokkakaavio |
+| **Viikko 4** | 7 | |
+| **yht.**     | 17 | |
