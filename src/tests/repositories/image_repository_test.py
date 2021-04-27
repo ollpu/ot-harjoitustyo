@@ -2,7 +2,6 @@ import unittest
 from tests.test_database import database_connection
 
 from repositories.image_repository import ImageRepository
-from entities.image import Image
 
 class ImageStub:
     def __init__(self, data):
