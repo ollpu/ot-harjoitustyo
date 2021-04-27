@@ -2,9 +2,10 @@ from database import database_connection
 from entities.image import Image
 
 class ImageRepository:
-    def __init__(self, db=database_connection):
+    def __init__(self, db=database_connection, image_factory=Image):
         self._db = db
         self._image_cache = {}
+        self._image_factory = image_factory
         cursor = self._db.cursor()
         cursor.executescript(
             """
@@ -50,8 +51,25 @@ class ImageRepository:
             cursor = self._db.cursor()
             cursor.execute("SELECT full_size FROM image WHERE id = ?;", (image_id,))
             row = cursor.fetchone()
-            image = Image.load_from_bytes(row["full_size"])
+            image = self._image_factory.load_from_bytes(row["full_size"])
             image.id = image_id
             return image
+
+    def clear(self):
+        """
+        Clear the image repository. Leaves games referencing images in an invalid state.
+        """
+
+        cursor = self._db.cursor()
+        cursor.execute("DELETE FROM image;")
+        self._db.commit()
+        self._image_cache.clear()
+
+    def clear_cache(self):
+        """
+        Evict all images from the instance specific cache.
+        """
+
+        self._image_cache.clear()
 
 default_image_repository = ImageRepository()
