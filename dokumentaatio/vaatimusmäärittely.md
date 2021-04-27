@@ -54,7 +54,7 @@ sekä muokata sanoja. Uutta paria lisättäessä aukeaa ainakin alustavasti
 tiedostonvalintaikkuna, eli kuvaksi tulee valita kuvatiedosto tietokoneelta.
 
 Luodut pelit tallennetaan käyttäjän tietokoneelle, eli ne eivät katoa kun sovellus
-suljetaan.
+suljetaan. (tehty, tosin omia pelejä ei voi vielä lisätä)
 
 ## Jatkokehitysideoita
 

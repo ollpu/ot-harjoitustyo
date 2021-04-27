@@ -11,4 +11,6 @@
 | 19.4. | 3 | GUI toimivaksi, lisää testejä, doc-kommentteja |
 | 20.4. | 4 | koodin siistintää, testejä Image-luokalle, doc-kommentteja, pakkaus/luokkakaavio |
 | **Viikko 4** | 7 | |
-| **yht.**     | 17 | |
+| 27.4. | 7 | SQLite, sekvenssikaavio pelin kulusta |
+| **Viikko 5** | 7 | |
+| **yht.**     | 24 | |
