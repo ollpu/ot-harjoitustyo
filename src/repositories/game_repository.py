@@ -24,8 +24,7 @@ class GameRepository:
                 round_id INTEGER,
                 caption TEXT,
                 image_id INTEGER,
-                FOREIGN KEY(round_id) REFERENCES round(id) ON DELETE CASCADE,
-                FOREIGN KEY(image_id) REFERENCES image(id)
+                FOREIGN KEY(round_id) REFERENCES round(id) ON DELETE CASCADE
             );
             """
         )
@@ -83,5 +82,14 @@ class GameRepository:
         # self._image_repository.load_thumbnails(images)
 
         return list(games.values())
+
+    def clear(self):
+        """
+        Clear the repository, removing all games. Images will be left dangling.
+        """
+
+        cursor = self._db.cursor()
+        cursor.execute("DELETE FROM game;")
+        self._db.commit()
 
 default_game_repository = GameRepository()
