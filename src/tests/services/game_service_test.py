@@ -11,7 +11,7 @@ class TestGameService(unittest.TestCase):
         self.service = GameService(shuffle=seeded_random.shuffle)
         round1 = Round([("Koira", "[koira]"), ("Kissa", "[kissa]")])
         round2 = Round([("Pöytä", "[pöytä]")])
-        self.game = Game([round1, round2])
+        self.game = Game("Peli", [round1, round2])
 
     def test_start_game_provides_text_and_images(self):
         self.service.start_game(self.game)

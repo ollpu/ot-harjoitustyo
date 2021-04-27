@@ -1,6 +1,7 @@
 from tkinter import Tk, Button, X, CENTER
 from default_game import load_test_game
 
+from repositories.game_repository import default_game_repository as game_repository
 from services.game_service import GameService
 from ui.game_view import GameView
 
@@ -11,7 +12,9 @@ class UI(Tk):
         self.title("Lukemisen harjoittelu")
         self.geometry("900x700")
         self._view = None
-        self._game = load_test_game()
+        if len(game_repository.all()) == 0:
+            game_repository.store(load_test_game())
+        self._games = game_repository.all()
         self.show_start_view()
 
     def destroy_current_view(self):
@@ -31,4 +34,4 @@ class UI(Tk):
 
         self._view = GameView(self, GameService())
         self._view.pack(fill=X)
-        self._view.start(self._game)
+        self._view.start(self._games[0])

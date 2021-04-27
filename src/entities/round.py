@@ -1,7 +1,7 @@
 
 class Round:
     """
-    Represents one round of a game. Consists of multiple (text, image)-pairs.
+    Represents one round of a game. Consists of multiple (caption, image)-pairs.
 
     Attributes:
         pairs: List of tuples, `(str, Image)`.
