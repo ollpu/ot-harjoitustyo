@@ -23,7 +23,8 @@ pelaajakin pystyy valitsemaan mieleisen.
 Editointitilaan pääsee alkuruudusta jotenkin, kuitenkin niin ettei pelaaja eksy sinne
 vahingossa.
 
-*(tehty: Yhden kovakoodatun pelin voi aloittaa aloitusruudusta)*
+*(tehty: Minkä tahansa pelin voi valita pelattavaksi tai muokattavaksi aloitusruudusta,
+mutta editointitilaa ei ole piilotettu)*
 
 ### Pelaaminen
 
@@ -44,17 +45,17 @@ merkkejä tai ehkä äänimerkkejä.
 
 ### Editointitila
 
-Editointitilassa on valittava ensin peli, jota muokataan, tai luoda uusi peli.
+Editointitilassa on valittava ensin peli, jota muokataan, tai luoda uusi peli. *(tehty)*
 
 Peli koostuu monesta tehtävästä, joissa jokaisessa on joukko kuva-sana -pareja.
-Pelille annetaan myös nimi.
+Pelille annetaan myös nimi. *(tehty)*
 
 Kun muokattava kierros on valittu, voidaan siihen lisätä tai poistaa näitä pareja,
 sekä muokata sanoja. Uutta paria lisättäessä aukeaa ainakin alustavasti
-tiedostonvalintaikkuna, eli kuvaksi tulee valita kuvatiedosto tietokoneelta.
+tiedostonvalintaikkuna, eli kuvaksi tulee valita kuvatiedosto tietokoneelta. *(tehty)*
 
 Luodut pelit tallennetaan käyttäjän tietokoneelle, eli ne eivät katoa kun sovellus
-suljetaan. (tehty, tosin omia pelejä ei voi vielä lisätä)
+suljetaan. *(tehty)*
 
 ## Jatkokehitysideoita
 

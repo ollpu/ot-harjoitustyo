@@ -13,4 +13,7 @@
 | **Viikko 4** | 7 | |
 | 27.4. | 7 | SQLite, sekvenssikaavio pelin kulusta |
 | **Viikko 5** | 7 | |
-| **yht.**     | 24 | |
+| 3.5. | 1 | UI ei enää käytä repositoryjä, refaktorointia |
+| 4.5. | 8 | Pelien muokkaamisen käyttöliittymä, käyttöohjeet |
+| **Viikko 6** | 9 | |
+| **yht.**     | 33 | |
