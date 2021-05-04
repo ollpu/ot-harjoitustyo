@@ -1,4 +1,4 @@
-from tkinter import Tk, Button, X, BOTH, CENTER
+from tkinter import Tk, X, BOTH
 
 from services.game_service import default_game_service as game_service
 from services.play_service import PlayService

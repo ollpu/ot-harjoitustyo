@@ -1,4 +1,4 @@
-from tkinter import Button, Frame, Label, Entry, W, X, TOP, LEFT, BOTTOM, CENTER, StringVar
+from tkinter import Button, Frame, Label, Entry, W, X, TOP, LEFT, BOTTOM, StringVar
 
 from services.game_service import default_game_service as game_service
 from ui.round_edit_view import RoundEditView
@@ -63,11 +63,13 @@ class GameEditView(Frame):
             name_label.grid(row=row, column=0, sticky=W, padx=(16, 8), pady=8)
             name_label.config(font=("TkDefaultFont", 20))
 
-            play_button = Button(master=self._rounds_list, text="Muokkaa", command=lambda idx=row: self._edit_round(idx))
+            play_button = Button(master=self._rounds_list, text="Muokkaa",
+                                 command=lambda idx=row: self._edit_round(idx))
             play_button.config(font=("TkDefaultFont", 20))
             play_button.grid(row=row, column=1, padx=8, pady=8)
 
-            edit_button = Button(master=self._rounds_list, text="Poista", command=lambda idx=row: self._remove_round(idx))
+            edit_button = Button(master=self._rounds_list, text="Poista",
+                                 command=lambda idx=row: self._remove_round(idx))
             edit_button.config(font=("TkDefaultFont", 20))
             edit_button.grid(row=row, column=2, padx=(8, 16), pady=8)
 

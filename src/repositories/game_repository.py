@@ -41,12 +41,15 @@ class GameRepository:
         cursor.execute("INSERT INTO game (name) VALUES (?)", (game.name,))
         game.id = cursor.lastrowid
         for position, g_round in enumerate(game.rounds):
-            cursor.execute("INSERT INTO round (game_id, position) VALUES (?, ?)", (game.id, position))
+            cursor.execute("INSERT INTO round (game_id, position) VALUES (?, ?)",
+                           (game.id, position))
             g_round.id = cursor.lastrowid
             for caption, image in g_round.pairs:
                 image_id = self._image_repository.ensure_stored(image)
-                cursor.execute("INSERT INTO image_pair (round_id, caption, image_id) VALUES (?, ?, ?)",
-                               (g_round.id, caption, image_id))
+                cursor.execute(
+                    "INSERT INTO image_pair (round_id, caption, image_id) VALUES (?, ?, ?)",
+                    (g_round.id, caption, image_id)
+                )
         # There may now be dangling (unused) images. They should be dealt with elsewhere.
         self._db.commit()
 

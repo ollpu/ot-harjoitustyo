@@ -1,4 +1,4 @@
-from tkinter import Button, Frame, Label, Entry, W, X, TOP, LEFT, BOTTOM, StringVar
+from tkinter import Button, Frame, Label, Entry, W, X, LEFT, BOTTOM, StringVar
 from tkinter.filedialog import askopenfilename
 from PIL import ImageTk, UnidentifiedImageError
 
@@ -52,7 +52,8 @@ class RoundEditView(Frame):
             self._image_refs.append(img)
             label.grid(row=row, column=1, padx=8, pady=6)
 
-            delete_button = Button(master=self._pairs_list, text="Poista", command=lambda idx=row: self._remove_pair(idx))
+            delete_button = Button(master=self._pairs_list, text="Poista",
+                                   command=lambda idx=row: self._remove_pair(idx))
             delete_button.config(font=("TkDefaultFont", 20))
             delete_button.grid(row=row, column=2, padx=(8, 16), pady=8)
 

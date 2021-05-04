@@ -14,10 +14,12 @@ class GameList(Frame):
             name_label = Label(master=self, text=game.name)
             name_label.grid(row=row, column=0, sticky=W, padx=(16, 8), pady=8)
             name_label.config(font=("TkDefaultFont", 20))
-            play_button = Button(master=self, text="Pelaa", command=lambda: self._play_game(game))
+            play_button = Button(master=self, text="Pelaa",
+                                 command=lambda game=game: self._play_game(game))
             play_button.config(font=("TkDefaultFont", 20))
             play_button.grid(row=row, column=1, padx=8, pady=8)
-            edit_button = Button(master=self, text="Muokkaa", command=lambda: self._edit_game(game))
+            edit_button = Button(master=self, text="Muokkaa",
+                                 command=lambda game=game: self._edit_game(game))
             edit_button.config(font=("TkDefaultFont", 20))
             edit_button.grid(row=row, column=2, padx=(8, 16), pady=8)
 
