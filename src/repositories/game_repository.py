@@ -50,6 +50,15 @@ class GameRepository:
         # There may now be dangling (unused) images. They should be dealt with elsewhere.
         self._db.commit()
 
+    def remove(self, game):
+        if game.id is None:
+            # Not stored in database, ignore
+            pass
+        else:
+            cursor = self._db.cursor()
+            cursor.execute("DELETE FROM game WHERE id = ?;", (game.id,))
+            self._db.commit()
+
     def all(self):
         """
         Get all games stored in the repository.

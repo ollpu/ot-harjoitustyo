@@ -9,9 +9,9 @@ from ui.flash_message import FlashMessage
 IMAGES_PER_ROW = 5
 
 class GameView(Frame):
-    def __init__(self, root, play_service):
-        super().__init__(master=root)
-        # self._root = root
+    def __init__(self, ui_root, play_service):
+        super().__init__(master=ui_root)
+        self._ui_root = ui_root
         self._play_service = play_service
         self._current_word_var = StringVar(self)
         self._current_word_label = Label(master=self, textvariable=self._current_word_var)
@@ -54,7 +54,7 @@ class GameView(Frame):
 
     def _end_game(self):
         self._play_service.reset()
-        self.master.show_start_view()
+        self._ui_root.show_start_view()
 
     def guess(self, index):
         result = self._play_service.submit_guess(index)

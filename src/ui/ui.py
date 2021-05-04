@@ -1,9 +1,10 @@
-from tkinter import Tk, Button, X, CENTER
-from default_game import load_test_game
+from tkinter import Tk, Button, X, BOTH, CENTER
 
-from repositories.game_repository import default_game_repository as game_repository
+from services.game_service import default_game_service as game_service
 from services.play_service import PlayService
 from ui.game_view import GameView
+from ui.game_list import GameList
+from ui.game_edit_view import GameEditView
 
 class UI(Tk):
     def __init__(self, *args, **kwargs):
@@ -12,9 +13,8 @@ class UI(Tk):
         self.title("Lukemisen harjoittelu")
         self.geometry("900x700")
         self._view = None
-        if len(game_repository.all()) == 0:
-            game_repository.store(load_test_game())
-        self._games = game_repository.all()
+        game_service.load_test_game_if_empty()
+        self._games = game_service.get_all_games()
         self.show_start_view()
 
     def destroy_current_view(self):
@@ -25,13 +25,18 @@ class UI(Tk):
     def show_start_view(self):
         self.destroy_current_view()
 
-        self._view = Button(self, text="Aloita peli", command=self.show_game_view)
-        self._view.config(font=("TkDefaultFont", 24))
-        self._view.place(relx=0.5, rely=0.5, anchor=CENTER)
+        self._view = GameList(self)
+        self._view.pack(fill=BOTH)
 
-    def show_game_view(self):
+    def show_game_view(self, game):
         self.destroy_current_view()
 
         self._view = GameView(self, PlayService())
         self._view.pack(fill=X)
-        self._view.start(self._games[0])
+        self._view.start(game)
+
+    def show_edit_view(self, game):
+        self.destroy_current_view()
+
+        self._view = GameEditView(self, game)
+        self._view.pack(fill=BOTH, expand=1)
