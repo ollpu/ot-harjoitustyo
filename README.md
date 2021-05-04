@@ -5,6 +5,7 @@
 [Vaatimusmäärittely](/dokumentaatio/vaatimusmäärittely.md)  
 [Arkkitehtuuri](/dokumentaatio/arkkitehtuuri.md)  
 [Tuntikirjanpito](/dokumentaatio/tuntikirjanpito.md)  
+[Käyttöohjeet](/dokumentaatio/käyttöohjeet.md)  
 
 ## Käyttö
 
