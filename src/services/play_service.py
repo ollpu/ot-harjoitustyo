@@ -13,7 +13,7 @@ class GuessResult(Enum):
     CORRECT_ONE = 1
     CORRECT_ROUND_COMPLETE = 2
 
-class GameService:
+class PlayService:
     """Service governing the logic of a game being played."""
 
     def __init__(self, shuffle=random.shuffle):

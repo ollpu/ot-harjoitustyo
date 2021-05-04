@@ -1,14 +1,14 @@
 import random
 import unittest
 
-from services.game_service import GameService, GuessResult
+from services.play_service import PlayService, GuessResult
 from entities.game import Game
 from entities.round import Round
 
-class TestGameService(unittest.TestCase):
+class TestPlayService(unittest.TestCase):
     def setUp(self):
         seeded_random = random.Random(12)
-        self.service = GameService(shuffle=seeded_random.shuffle)
+        self.service = PlayService(shuffle=seeded_random.shuffle)
         round1 = Round([("Koira", "[koira]"), ("Kissa", "[kissa]")])
         round2 = Round([("Pöytä", "[pöytä]")])
         self.game = Game("Peli", [round1, round2])

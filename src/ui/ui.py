@@ -2,7 +2,7 @@ from tkinter import Tk, Button, X, CENTER
 from default_game import load_test_game
 
 from repositories.game_repository import default_game_repository as game_repository
-from services.game_service import GameService
+from services.play_service import PlayService
 from ui.game_view import GameView
 
 class UI(Tk):
@@ -32,6 +32,6 @@ class UI(Tk):
     def show_game_view(self):
         self.destroy_current_view()
 
-        self._view = GameView(self, GameService())
+        self._view = GameView(self, PlayService())
         self._view.pack(fill=X)
         self._view.start(self._games[0])
