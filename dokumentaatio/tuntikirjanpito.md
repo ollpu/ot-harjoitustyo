@@ -16,4 +16,5 @@
 | 3.5. | 1 | UI ei enää käytä repositoryjä, refaktorointia |
 | 4.5. | 8 | Pelien muokkaamisen käyttöliittymä, käyttöohjeet |
 | **Viikko 6** | 9 | |
+| 11.5. | 2 | Testejä |
 | **yht.**     | 33 | |
