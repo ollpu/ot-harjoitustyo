@@ -61,6 +61,7 @@ class GameRepository:
             cursor = self._db.cursor()
             cursor.execute("DELETE FROM game WHERE id = ?;", (game.id,))
             self._db.commit()
+            game.id = None
 
     def all(self):
         """
