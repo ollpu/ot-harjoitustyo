@@ -3,6 +3,14 @@ from entities.image import Image
 
 class ImageRepository:
     def __init__(self, db=database_connection, image_factory=Image):
+        """
+        Construct an ImageRepository.
+
+        Args:
+            db: Database connection to use.
+            image_factory: Image class used for loading images from bytes.
+        """
+
         self._db = db
         self._image_cache = {}
         self._image_factory = image_factory
@@ -24,7 +32,10 @@ class ImageRepository:
         It is assumed that the contents of the image are never changed during
         its lifetime.
 
-        Returns: The id of the stored image.
+        Args:
+            image: An Image entity.
+        Returns:
+            The id of the stored image.
         """
 
         if not image.id:
@@ -38,10 +49,13 @@ class ImageRepository:
 
     def get_lazy(self, image_id):
         """
-        Get an image object with the given id, possibly deferring actually loading
-        the images.
+        Get an image object with the given ID, possibly deferring actually loading
+        the image into memory.
 
-        Returns: The Image associated with this id.
+        Args:
+            image_id: ID to fetch with.
+        Returns:
+            The Image associated with this ID.
         """
 
         if image_id in self._image_cache:

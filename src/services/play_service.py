@@ -18,7 +18,7 @@ class PlayService:
 
     def __init__(self, shuffle=random.shuffle):
         """
-        Constructor.
+        Construct a PlayService.
 
         Args:
             shuffle: Inject different shuffle implementation. The texts are first shuffled,
@@ -102,7 +102,7 @@ class PlayService:
 
         Returns:
             An array of tuples (image, index) which represent the images
-            of this round.
+            of this round. Empty if there is no active round.
         """
 
         return self._images
@@ -113,20 +113,23 @@ class PlayService:
 
         Returns:
             An array of booleans, where the index i is True if that image
-            has already been used on this round.
+            has already been used on this round. Empty if there is no active round.
         """
 
         return self._images_used
 
     def submit_guess(self, index):
         """
-        Guess that the current text corresponds to the image `index`.
+        Guess that the current text corresponds to the image `index`. A round with
+        remaining texts must be ongoing.
 
         Args:
             index: Guessed image index, gotten from `get_images`.
         Returns:
             A `GuessResult`.
         """
+
+        assert len(self._texts_left) > 0
 
         if index != self._texts_left[-1][1]:
             return GuessResult.INCORRECT

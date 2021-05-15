@@ -13,6 +13,13 @@ class Image:
     """
 
     def __init__(self, image):
+        """
+        Construct an Image entity. ID is set to None initially.
+
+        Args:
+            image: A PIL image.
+        """
+
         self.id = None
         self.loaded_image = image
         self._resize_if_necessary()
@@ -24,8 +31,9 @@ class Image:
 
         Args:
             file: Path to the image file.
+            opener: Function to open the image with. `PIL.Image.open` by default.
         Returns:
-            Image with loaded PIL.Image.
+            Image entity.
         """
 
         image = opener(file)
@@ -35,6 +43,12 @@ class Image:
     def load_from_bytes(file_bytes, opener=PIL.Image.open):
         """
         Load any type of image from the given bytes object.
+
+        Args:
+            file_bytes: Image file as a bytes object.
+            opener: Function to open the image with. `PIL.Image.open` by default.
+        Returns:
+            Image entity.
         """
 
         image = opener(io.BytesIO(file_bytes))
@@ -49,7 +63,10 @@ class Image:
 
     def as_png_bytes(self):
         """
-        Returns the associated image as bytes, in PNG format.
+        Encode this image as a PNG.
+
+        Returns:
+            A bytes object containing the PNG encoding of the associated image.
         """
 
         stream = io.BytesIO()

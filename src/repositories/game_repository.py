@@ -5,6 +5,14 @@ from entities.round import Round
 
 class GameRepository:
     def __init__(self, db=database_connection, image_repo=default_image_repository):
+        """
+        Construct a GameRepository.
+
+        Args:
+            db: Databse connection to use.
+            image_repo: Image repository. `default_image_repository` by default.
+        """
+
         self._db = db
         self._image_repository = image_repo
         cursor = self._db.cursor()
@@ -33,6 +41,9 @@ class GameRepository:
     def store(self, game):
         """
         Store a new or updated a game.
+
+        Args:
+            game: A Game entity.
         """
 
         cursor = self._db.cursor()
@@ -54,6 +65,13 @@ class GameRepository:
         self._db.commit()
 
     def remove(self, game):
+        """
+        Remove a game if it is currently stored.
+
+        Args:
+            game: A Game entity.
+        """
+
         if game.id is None:
             # Not stored in database, ignore
             pass
@@ -66,6 +84,9 @@ class GameRepository:
     def all(self):
         """
         Get all games stored in the repository.
+
+        Returns:
+            Array of Game entities, sorted by creation time.
         """
 
         games = {}
