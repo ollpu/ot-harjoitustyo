@@ -17,4 +17,5 @@
 | 4.5. | 8 | Pelien muokkaamisen käyttöliittymä, käyttöohjeet |
 | **Viikko 6** | 9 | |
 | 11.5. | 2 | Testejä |
+| 12.5. | 2 | README, vierityspalkit |
 | **yht.**     | 33 | |
