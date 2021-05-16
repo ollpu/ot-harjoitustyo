@@ -1,9 +1,10 @@
-from tkinter import Button, Frame, Label, Entry, W, X, LEFT, BOTTOM, StringVar
+from tkinter import Button, Frame, Label, Entry, W, X, LEFT, BOTTOM, BOTH, StringVar
 from tkinter.filedialog import askopenfilename
 from PIL import ImageTk, UnidentifiedImageError
 
 from entities.image import Image
 from ui.flash_message import FlashMessage
+from ui.scroll_box import ScrollBox
 
 class RoundEditView(Frame):
     def __init__(self, game_edit_view, g_round):
@@ -12,9 +13,10 @@ class RoundEditView(Frame):
 
         self._round = g_round
 
-        self._pairs_list = Frame(master=self)
+        scrollbox = ScrollBox(self)
+        self._pairs_list = scrollbox.contents
         self._pairs_list.grid_columnconfigure(0, weight=1)
-        self._pairs_list.pack(fill=X)
+        scrollbox.pack(fill="both", expand=True)
 
         self._name_vars = []
         self._image_refs = []

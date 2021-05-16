@@ -1,7 +1,8 @@
-from tkinter import Button, Frame, Label, Entry, W, X, TOP, LEFT, BOTTOM, StringVar
+from tkinter import Button, Frame, Label, Entry, W, X, TOP, LEFT, BOTTOM, BOTH, StringVar
 
 from services.game_service import default_game_service as game_service
 from ui.round_edit_view import RoundEditView
+from ui.scroll_box import ScrollBox
 
 class GameEditView(Frame):
     def __init__(self, ui_root, game):
@@ -15,9 +16,10 @@ class GameEditView(Frame):
         name_entry.config(font=("TkDefaultFont", 20))
         name_entry.pack(fill=X, pady=8, padx=8)
 
-        self._rounds_list = Frame(master=self)
+        scrollbox = ScrollBox(self)
+        self._rounds_list = scrollbox.contents
         self._rounds_list.grid_columnconfigure(0, weight=1)
-        self._rounds_list.pack(fill=X)
+        scrollbox.pack(fill=BOTH, expand=True)
 
         self._load_rounds()
 
