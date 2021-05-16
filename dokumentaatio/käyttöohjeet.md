@@ -1,5 +1,26 @@
 # Käyttöohjeet
 
+## Käynnistäminen
+
+Asenna ensin riippuvuudet `poetry`-paketinhallinnan avulla.
+
+```
+poetry install
+```
+
+Käynnistä sitten sovellus projektin juuresta seuraavasti:
+
+```
+poetry run invoke start
+```
+
+Voit halutessasi vaihtaa käytettävää tietokantatiedostoa ympäristömuuttujalla
+`LUHA_TIETOKANTA`. Oletus on `data/tietokanta.db`.
+
+```
+LUHA_TIETOKANTA="~/pelit.db" poetry run invoke start
+```
+
 ## Alkuruutu
 
 Alkuruutu näyttää tältä:
