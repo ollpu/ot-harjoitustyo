@@ -8,6 +8,7 @@ luoda omia pelejä, joissa pelaajaa pyydetään yhdistämään teksti oikeaan ku
 
 [Vaatimusmäärittely](/dokumentaatio/vaatimusmäärittely.md)  
 [Arkkitehtuuri](/dokumentaatio/arkkitehtuuri.md)  
+[Testaus](/dokumentaatio/testaus.md)  
 [Tuntikirjanpito](/dokumentaatio/tuntikirjanpito.md)  
 [Käyttöohjeet](/dokumentaatio/käyttöohjeet.md)  
 

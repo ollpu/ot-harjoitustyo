@@ -42,6 +42,7 @@ Jossain vaiheessa voidaan siirtyä seuraavaan sanaan, jos sana ei millään mene
 
 Koska pelaaja ei oikein osaa vielä lukea, tulee hyödyntää yksinkertaisia visuaalisia
 merkkejä tai ehkä äänimerkkejä.
+*(tehty: oikea vastaus on vihreä, väärä vastaus on punainen)*
 
 ### Editointitila
 

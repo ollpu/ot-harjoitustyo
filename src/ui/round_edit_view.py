@@ -2,7 +2,7 @@ from tkinter import Button, Frame, Label, Entry, W, X, LEFT, BOTTOM, BOTH, Strin
 from tkinter.filedialog import askopenfilename
 from PIL import ImageTk, UnidentifiedImageError
 
-from entities.image import Image
+from services.image_service import default_image_service as image_service
 from ui.flash_message import FlashMessage
 from ui.scroll_box import ScrollBox
 
@@ -74,7 +74,7 @@ class RoundEditView(Frame):
         self._update_names()
         filename = askopenfilename()
         try:
-            image = Image.load_from_file(filename)
+            image = image_service.load_from_file(filename)
             self._round.pairs.append(("Uusi kuva", image))
             self._load_pairs()
         except UnidentifiedImageError:

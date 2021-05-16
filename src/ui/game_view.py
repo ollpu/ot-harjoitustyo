@@ -17,8 +17,6 @@ class GameView(Frame):
         self._current_word_label = Label(master=self, textvariable=self._current_word_var)
         self._current_word_label.config(font=("TkDefaultFont", 24))
         self._current_word_label.pack(pady=6)
-        #self._images_container = Text(self, wrap="char", borderwidth=0,
-        #                              highlightthickness=0, state="disabled")
         self._images_container = Frame(master=self)
         self._images_container.pack(expand=True)
         self._images = []
