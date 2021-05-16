@@ -18,4 +18,6 @@
 | **Viikko 6** | 9 | |
 | 11.5. | 2 | Testejä |
 | 12.5. | 2 | README, vierityspalkit |
-| **yht.**     | 33 | |
+| 16.5. | 6 | dokumentointi |
+| **Viikko 7** | 10 | |
+| **yht.**     | 43 | |
