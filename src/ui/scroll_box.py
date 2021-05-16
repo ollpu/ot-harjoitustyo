@@ -7,7 +7,8 @@ class ScrollBox(Frame):
         scrollbar = Scrollbar(self, orient="vertical", command=canvas.yview)
         self.contents = Frame(self)
 
-        self.contents.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        self.contents.bind("<Configure>",
+                           lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
         key = canvas.create_window((0, 0), window=self.contents, anchor=NW)
         canvas.bind("<Configure>", lambda e: canvas.itemconfig(key, width=e.width))

@@ -1,4 +1,4 @@
-from tkinter import Button, Frame, Label, Entry, W, X, LEFT, BOTTOM, BOTH, StringVar
+from tkinter import Button, Frame, Label, Entry, W, LEFT, BOTTOM, StringVar
 from tkinter.filedialog import askopenfilename
 from PIL import ImageTk, UnidentifiedImageError
 
