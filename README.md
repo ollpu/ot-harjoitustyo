@@ -1,4 +1,8 @@
-# Ohjelmistotekniikka harjoitustyö
+# Lukemisen harjoittelu
+## Ohjelmistotekniikan harjoitystyö
+
+Leikki-ikäiselle suunnattu sovellus lukemisen harjoittelua varten. Huoltaja voi
+luoda omia pelejä, joissa pelaajaa pyydetään yhdistämään teksti oikeaan kuvaan.
 
 ## Dokumentaatio
 
